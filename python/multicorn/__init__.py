@@ -126,6 +126,8 @@ class Qual(object):
             operator = self.operator[0]
         else:
             value = self.value
+            if not isinstance(value, (int, float)):
+                value = f"'{value}'"
             operator = self.operator
         return ("%s %s %s" % (self.field_name, operator, value))
 
